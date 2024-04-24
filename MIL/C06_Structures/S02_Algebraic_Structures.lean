@@ -29,18 +29,18 @@ variable (f : α ≃ β) (g : β ≃ γ)
 #check (f.symm : β ≃ α)
 #check (f.trans g : α ≃ γ)
 
-theorem ex1 (x : α) : (f.trans g).toFun x = g.toFun (f.toFun x) :=
+theorem S02_Algebraic_Structures_ex1 (x : α) : (f.trans g).toFun x = g.toFun (f.toFun x) :=
   rfl
 
-theorem ex2 (x : α) : (f.trans g) x = g (f x) :=
+theorem S02_Algebraic_Structures_ex2 (x : α) : (f.trans g) x = g (f x) :=
   rfl
 
-theorem ex3 : (f.trans g : α → γ) = g ∘ f :=
+theorem S02_Algebraic_Structures_ex3 : (f.trans g : α → γ) = g ∘ f :=
   rfl
 
 end
 
-theorem ex4 (α : Type*) : Equiv.Perm α = (α ≃ α) :=
+theorem S02_Algebraic_Structures_ex4 (α : Type*) : Equiv.Perm α = (α ≃ α) :=
   rfl
 
 def permGroup {α : Type*} : Group₁ (Equiv.Perm α)
@@ -84,12 +84,12 @@ variable {α : Type*} (f g : Equiv.Perm α) (n : ℕ)
 -- group power, defined for any group
 #check g ^ n
 
-theorem ex5 : f * g * g⁻¹ = f := by rw [mul_assoc, mul_right_inv, mul_one]
+theorem S02_Algebraic_Structures_ex5 : f * g * g⁻¹ = f := by rw [mul_assoc, mul_right_inv, mul_one]
 
-theorem ex6 : f * g * g⁻¹ = f :=
+theorem S02_Algebraic_Structures_ex6 : f * g * g⁻¹ = f :=
   mul_inv_cancel_right f g
 
-theorem ex7 {α : Type*} (f g : Equiv.Perm α) : g.symm.trans (g.trans f) = f :=
+theorem S02_Algebraic_Structures_ex7 {α : Type*} (f g : Equiv.Perm α) : g.symm.trans (g.trans f) = f :=
   mul_inv_cancel_right f g
 
 end
@@ -122,10 +122,10 @@ def mySquare {α : Type*} [Group₂ α] (x : α) :=
 section
 variable {β : Type*} (f g : Equiv.Perm β)
 
-theorem ex8 : Group₂.mul f g = g.trans f :=
+theorem S02_Algebraic_Structures_ex8 : Group₂.mul f g = g.trans f :=
   rfl
 
-theorem ex9 : mySquare f = f.trans f :=
+theorem S02_Algebraic_Structures_ex9 : mySquare f = f.trans f :=
   rfl
 
 end
@@ -134,7 +134,7 @@ instance : Inhabited Point where default := ⟨0, 0, 0⟩
 
 #check (default : Point)
 
-theorem ex10 : ([] : List Point).headI = default :=
+theorem S02_Algebraic_Structures_ex10 : ([] : List Point).headI = default :=
   rfl
 
 instance : Add Point where add := Point.add
@@ -144,7 +144,7 @@ variable (x y : Point)
 
 #check x + y
 
-theorem ex11 : x + y = Point.add x y :=
+theorem S02_Algebraic_Structures_ex11 : x + y = Point.add x y :=
   rfl
 
 end

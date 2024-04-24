@@ -10,14 +10,14 @@ variable (a b c d : ℝ)
 #check (min_le_right a b : min a b ≤ b)
 #check (le_min : c ≤ a → c ≤ b → c ≤ min a b)
 
-theorem ex1 : max a b = max b a := by
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex1 : max a b = max b a := by
   apply le_antisymm
   repeat
     apply max_le
     apply le_max_right
     apply le_max_left
 
-theorem ex2 : min (min a b) c = min a (min b c) := by
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex2 : min (min a b) c = min a (min b c) := by
   apply le_antisymm
   · apply le_min
     · apply le_trans
@@ -45,7 +45,7 @@ theorem aux : min a b + c ≤ min (a + c) (b + c) := by
   apply add_le_add_right
   apply min_le_right
 
-theorem ex3 : min a b + c = min (a + c) (b + c) := by
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex3 : min a b + c = min (a + c) (b + c) := by
   apply le_antisymm
   · apply aux
   have h : min (a + c) (b + c) = min (a + c) (b + c) - c + c := by rw [sub_add_cancel]
@@ -56,7 +56,7 @@ theorem ex3 : min a b + c = min (a + c) (b + c) := by
   apply aux
   rw [add_neg_cancel_right, add_neg_cancel_right]
 
-theorem ex4 : |a| - |b| ≤ |a - b| :=
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex4 : |a| - |b| ≤ |a - b| :=
   calc
     |a| - |b| = |a - b + b| - |b| := by rw [sub_add_cancel]
     _ ≤ |a - b| + |b| - |b| := by
@@ -66,7 +66,7 @@ theorem ex4 : |a| - |b| ≤ |a - b| :=
 
 
 -- alternatively
-theorem ex5 : |a| - |b| ≤ |a - b| := by
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex5 : |a| - |b| ≤ |a - b| := by
   have h := abs_add (a - b) b
   rw [sub_add_cancel] at h
   linarith
@@ -76,17 +76,17 @@ end
 section
 variable (w x y z : ℕ)
 
-theorem ex6 (h₀ : x ∣ y) (h₁ : y ∣ z) : x ∣ z :=
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex6 (h₀ : x ∣ y) (h₁ : y ∣ z) : x ∣ z :=
   dvd_trans h₀ h₁
 
-theorem ex7 : x ∣ y * x * z := by
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex7 : x ∣ y * x * z := by
   apply dvd_mul_of_dvd_left
   apply dvd_mul_left
 
-theorem ex8 : x ∣ x ^ 2 := by
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex8 : x ∣ x ^ 2 := by
   apply dvd_mul_left
 
-theorem ex9 (h : x ∣ w) : x ∣ y * (x * z) + x ^ 2 + w ^ 2 := by
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex9 (h : x ∣ w) : x ∣ y * (x * z) + x ^ 2 + w ^ 2 := by
   apply dvd_add
   · apply dvd_add
     · apply dvd_mul_of_dvd_right
@@ -106,7 +106,7 @@ variable (m n : ℕ)
 #check (Nat.lcm_zero_right n : Nat.lcm n 0 = 0)
 #check (Nat.lcm_zero_left n : Nat.lcm 0 n = 0)
 
-theorem ex10 : Nat.gcd m n = Nat.gcd n m := by
+theorem Solutions_S04_More_on_Order_and_Divisibility_ex10 : Nat.gcd m n = Nat.gcd n m := by
   apply Nat.dvd_antisymm
   repeat'
     apply Nat.dvd_gcd

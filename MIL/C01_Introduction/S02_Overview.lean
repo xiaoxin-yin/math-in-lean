@@ -32,14 +32,14 @@ theorem hard : FermatLastTheorem :=
 #check hard
 
 -- Here are some proofs.
-theorem ex1 : ∀ m n : Nat, Even n → Even (m * n) := fun m n ⟨k, (hk : n = k + k)⟩ ↦
+theorem S02_Overview_ex1 : ∀ m n : Nat, Even n → Even (m * n) := fun m n ⟨k, (hk : n = k + k)⟩ ↦
   have hmn : m * n = m * k + m * k := by rw [hk, mul_add]
   show ∃ l, m * n = l + l from ⟨_, hmn⟩
 
-theorem ex2 : ∀ m n : Nat, Even n → Even (m * n) :=
+theorem S02_Overview_ex2 : ∀ m n : Nat, Even n → Even (m * n) :=
 fun m n ⟨k, hk⟩ ↦ ⟨m * k, by rw [hk, mul_add]⟩
 
-theorem ex3 : ∀ m n : Nat, Even n → Even (m * n) := by
+theorem S02_Overview_ex3 : ∀ m n : Nat, Even n → Even (m * n) := by
   -- Say m and n are natural numbers, and assume n=2*k.
   rintro m n ⟨k, hk⟩
   -- We need to prove m*n is twice a natural number. Let's show it's twice m*k.
@@ -49,9 +49,9 @@ theorem ex3 : ∀ m n : Nat, Even n → Even (m * n) := by
   -- and now it's obvious.
   ring
 
-theorem ex4 : ∀ m n : Nat, Even n → Even (m * n) := by
+theorem S02_Overview_ex4 : ∀ m n : Nat, Even n → Even (m * n) := by
   rintro m n ⟨k, hk⟩; use m * k; rw [hk]; ring
 
-theorem ex5 : ∀ m n : Nat, Even n → Even (m * n) := by
+theorem S02_Overview_ex5 : ∀ m n : Nat, Even n → Even (m * n) := by
   intros; simp [*, parity_simps]
 

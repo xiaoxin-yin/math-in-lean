@@ -138,13 +138,13 @@ instance : Nontrivial gaussInt := by
 
 end gaussInt
 
-theorem ex1 (a b : ℤ) : a = b * (a / b) + a % b :=
+theorem S03_Building_the_Gaussian_Integers_ex1 (a b : ℤ) : a = b * (a / b) + a % b :=
   Eq.symm (Int.ediv_add_emod a b)
 
-theorem ex2 (a b : ℤ) : b ≠ 0 → 0 ≤ a % b :=
+theorem S03_Building_the_Gaussian_Integers_ex2 (a b : ℤ) : b ≠ 0 → 0 ≤ a % b :=
   Int.emod_nonneg a
 
-theorem ex3 (a b : ℤ) : b ≠ 0 → a % b < |b| :=
+theorem S03_Building_the_Gaussian_Integers_ex3 (a b : ℤ) : b ≠ 0 → a % b < |b| :=
   Int.emod_lt a
 
 namespace Int
@@ -267,7 +267,7 @@ instance : EuclideanDomain gaussInt :=
     remainder_lt := natAbs_norm_mod_lt
     mul_left_not_lt := not_norm_mul_left_lt_norm }
 
-theorem ex4 (x : gaussInt) : Irreducible x ↔ Prime x :=
+theorem S03_Building_the_Gaussian_Integers_ex4 (x : gaussInt) : Irreducible x ↔ Prime x :=
   PrincipalIdealRing.irreducible_iff_prime
 
 end gaussInt

@@ -10,7 +10,7 @@ def principal {α : Type*} (s : Set α) : Filter α
   sets_of_superset := sorry
   inter_sets := sorry
 
-theorem ex1 : Filter ℕ :=
+theorem S01_Filters_ex1 : Filter ℕ :=
   { sets := { s | ∃ a, ∀ b, a ≤ b → b ∈ s }
     univ_sets := sorry
     sets_of_superset := sorry
@@ -22,7 +22,7 @@ def Tendsto₁ {X Y : Type*} (f : X → Y) (F : Filter X) (G : Filter Y) :=
 def Tendsto₂ {X Y : Type*} (f : X → Y) (F : Filter X) (G : Filter Y) :=
   map f F ≤ G
 
-theorem ex2 {X Y : Type*} (f : X → Y) (F : Filter X) (G : Filter Y) :
+theorem S01_Filters_ex2 {X Y : Type*} (f : X → Y) (F : Filter X) (G : Filter Y) :
     Tendsto₂ f F G ↔ Tendsto₁ f F G :=
   Iff.rfl
 
@@ -32,7 +32,7 @@ theorem ex2 {X Y : Type*} (f : X → Y) (F : Filter X) (G : Filter Y) :
   (@Filter.map_map :
     ∀ {α β γ} {f : Filter α} {m : α → β} {m' : β → γ}, map m' (map m f) = map (m' ∘ m) f)
 
-theorem ex3 {X Y Z : Type*} {F : Filter X} {G : Filter Y} {H : Filter Z} {f : X → Y} {g : Y → Z}
+theorem S01_Filters_ex3 {X Y Z : Type*} {F : Filter X} {G : Filter Y} {H : Filter Z} {f : X → Y} {g : Y → Z}
     (hf : Tendsto₁ f F G) (hg : Tendsto₁ g G H) : Tendsto₁ (g ∘ f) F H :=
   sorry
 
@@ -49,34 +49,34 @@ variable {α β γ : Type*} (F : Filter α) {m : γ → β} {n : β → α}
 
 end
 
-theorem ex4 : 𝓝 (x₀, y₀) = 𝓝 x₀ ×ˢ 𝓝 y₀ :=
+theorem S01_Filters_ex4 : 𝓝 (x₀, y₀) = 𝓝 x₀ ×ˢ 𝓝 y₀ :=
   nhds_prod_eq
 
 #check le_inf_iff
 
-theorem ex5 (f : ℕ → ℝ × ℝ) (x₀ y₀ : ℝ) :
+theorem S01_Filters_ex5 (f : ℕ → ℝ × ℝ) (x₀ y₀ : ℝ) :
     Tendsto f atTop (𝓝 (x₀, y₀)) ↔
       Tendsto (Prod.fst ∘ f) atTop (𝓝 x₀) ∧ Tendsto (Prod.snd ∘ f) atTop (𝓝 y₀) :=
   sorry
 
-theorem ex6 (x₀ : ℝ) : HasBasis (𝓝 x₀) (fun ε : ℝ ↦ 0 < ε) fun ε ↦ Ioo (x₀ - ε) (x₀ + ε) :=
+theorem S01_Filters_ex6 (x₀ : ℝ) : HasBasis (𝓝 x₀) (fun ε : ℝ ↦ 0 < ε) fun ε ↦ Ioo (x₀ - ε) (x₀ + ε) :=
   nhds_basis_Ioo_pos x₀
 
-theorem ex7 (u : ℕ → ℝ) (x₀ : ℝ) :
+theorem S01_Filters_ex7 (u : ℕ → ℝ) (x₀ : ℝ) :
     Tendsto u atTop (𝓝 x₀) ↔ ∀ ε > 0, ∃ N, ∀ n ≥ N, u n ∈ Ioo (x₀ - ε) (x₀ + ε) := by
   have : atTop.HasBasis (fun _ : ℕ ↦ True) Ici := atTop_basis
   rw [this.tendsto_iff (nhds_basis_Ioo_pos x₀)]
   simp
 
-theorem ex8 (P Q : ℕ → Prop) (hP : ∀ᶠ n in atTop, P n) (hQ : ∀ᶠ n in atTop, Q n) :
+theorem S01_Filters_ex8 (P Q : ℕ → Prop) (hP : ∀ᶠ n in atTop, P n) (hQ : ∀ᶠ n in atTop, Q n) :
     ∀ᶠ n in atTop, P n ∧ Q n :=
   hP.and hQ
 
-theorem ex9 (u v : ℕ → ℝ) (h : ∀ᶠ n in atTop, u n = v n) (x₀ : ℝ) :
+theorem S01_Filters_ex9 (u v : ℕ → ℝ) (h : ∀ᶠ n in atTop, u n = v n) (x₀ : ℝ) :
     Tendsto u atTop (𝓝 x₀) ↔ Tendsto v atTop (𝓝 x₀) :=
   tendsto_congr' h
 
-theorem ex10 (u v : ℕ → ℝ) (h : u =ᶠ[atTop] v) (x₀ : ℝ) :
+theorem S01_Filters_ex10 (u v : ℕ → ℝ) (h : u =ᶠ[atTop] v) (x₀ : ℝ) :
     Tendsto u atTop (𝓝 x₀) ↔ Tendsto v atTop (𝓝 x₀) :=
   tendsto_congr' h
 
@@ -84,13 +84,13 @@ theorem ex10 (u v : ℕ → ℝ) (h : u =ᶠ[atTop] v) (x₀ : ℝ) :
 #check Eventually.mono
 #check Eventually.and
 
-theorem ex11 (P Q R : ℕ → Prop) (hP : ∀ᶠ n in atTop, P n) (hQ : ∀ᶠ n in atTop, Q n)
+theorem S01_Filters_ex11 (P Q R : ℕ → Prop) (hP : ∀ᶠ n in atTop, P n) (hQ : ∀ᶠ n in atTop, Q n)
     (hR : ∀ᶠ n in atTop, P n ∧ Q n → R n) : ∀ᶠ n in atTop, R n := by
   apply (hP.and (hQ.and hR)).mono
   rintro n ⟨h, h', h''⟩
   exact h'' ⟨h, h'⟩
 
-theorem ex12 (P Q R : ℕ → Prop) (hP : ∀ᶠ n in atTop, P n) (hQ : ∀ᶠ n in atTop, Q n)
+theorem S01_Filters_ex12 (P Q R : ℕ → Prop) (hP : ∀ᶠ n in atTop, P n) (hQ : ∀ᶠ n in atTop, Q n)
     (hR : ∀ᶠ n in atTop, P n ∧ Q n → R n) : ∀ᶠ n in atTop, R n := by
   filter_upwards [hP, hQ, hR] with n h h' h''
   exact h'' ⟨h, h'⟩
@@ -99,7 +99,7 @@ theorem ex12 (P Q R : ℕ → Prop) (hP : ∀ᶠ n in atTop, P n) (hQ : ∀ᶠ n
 #check le_principal_iff
 #check neBot_of_le
 
-theorem ex13 (u : ℕ → ℝ) (M : Set ℝ) (x : ℝ) (hux : Tendsto u atTop (𝓝 x))
+theorem S01_Filters_ex13 (u : ℕ → ℝ) (M : Set ℝ) (x : ℝ) (hux : Tendsto u atTop (𝓝 x))
     (huM : ∀ᶠ n in atTop, u n ∈ M) : x ∈ closure M :=
   sorry
 

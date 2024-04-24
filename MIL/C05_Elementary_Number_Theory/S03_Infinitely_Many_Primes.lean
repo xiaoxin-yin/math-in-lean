@@ -13,12 +13,12 @@ theorem two_le {m : ℕ} (h0 : m ≠ 0) (h1 : m ≠ 1) : 2 ≤ m := by
     repeat' apply Nat.succ_le_succ
     apply zero_le
 
-theorem ex1 {m : ℕ} (h0 : m ≠ 0) (h1 : m ≠ 1) : 2 ≤ m := by
+theorem S03_Infinitely_Many_Primes_ex1 {m : ℕ} (h0 : m ≠ 0) (h1 : m ≠ 1) : 2 ≤ m := by
   by_contra h
   push_neg at h
   interval_cases m <;> contradiction
 
-theorem ex2 {m : ℕ} (h0 : m ≠ 0) (h1 : m ≠ 1) : 2 ≤ m := by
+theorem S03_Infinitely_Many_Primes_ex2 {m : ℕ} (h0 : m ≠ 0) (h1 : m ≠ 1) : 2 ≤ m := by
   by_contra h
   push_neg at h
   revert h0 h1
@@ -63,23 +63,23 @@ open Finset
 section
 variable {α : Type*} [DecidableEq α] (r s t : Finset α)
 
-theorem ex3 : r ∩ (s ∪ t) ⊆ r ∩ s ∪ r ∩ t := by
+theorem S03_Infinitely_Many_Primes_ex3 : r ∩ (s ∪ t) ⊆ r ∩ s ∪ r ∩ t := by
   rw [subset_iff]
   intro x
   rw [mem_inter, mem_union, mem_union, mem_inter, mem_inter]
   tauto
 
-theorem ex4 : r ∩ (s ∪ t) ⊆ r ∩ s ∪ r ∩ t := by
+theorem S03_Infinitely_Many_Primes_ex4 : r ∩ (s ∪ t) ⊆ r ∩ s ∪ r ∩ t := by
   simp [subset_iff]
   intro x
   tauto
 
-theorem ex5 : r ∩ s ∪ r ∩ t ⊆ r ∩ (s ∪ t) := by
+theorem S03_Infinitely_Many_Primes_ex5 : r ∩ s ∪ r ∩ t ⊆ r ∩ (s ∪ t) := by
   simp [subset_iff]
   intro x
   tauto
 
-theorem ex6 : r ∩ s ∪ r ∩ t = r ∩ (s ∪ t) := by
+theorem S03_Infinitely_Many_Primes_ex6 : r ∩ s ∪ r ∩ t = r ∩ (s ∪ t) := by
   ext x
   simp
   tauto
@@ -89,14 +89,14 @@ end
 section
 variable {α : Type*} [DecidableEq α] (r s t : Finset α)
 
-theorem ex7 : (r ∪ s) ∩ (r ∪ t) = r ∪ s ∩ t := by
+theorem S03_Infinitely_Many_Primes_ex7 : (r ∪ s) ∩ (r ∪ t) = r ∪ s ∩ t := by
   sorry
-theorem ex8 : (r \ s) \ t = r \ (s ∪ t) := by
+theorem S03_Infinitely_Many_Primes_ex8 : (r \ s) \ t = r \ (s ∪ t) := by
   sorry
 
 end
 
-theorem ex9 (s : Finset ℕ) (n : ℕ) (h : n ∈ s) : n ∣ ∏ i in s, i :=
+theorem S03_Infinitely_Many_Primes_ex9 (s : Finset ℕ) (n : ℕ) (h : n ∈ s) : n ∣ ∏ i in s, i :=
   Finset.dvd_prod_of_mem _ h
 
 theorem _root_.Nat.Prime.eq_of_dvd_of_prime {p q : ℕ}
@@ -113,7 +113,7 @@ theorem mem_of_dvd_prod_primes {s : Finset ℕ} {p : ℕ} (prime_p : p.Prime) :
   simp [Finset.prod_insert ans, prime_p.dvd_mul] at h₀ h₁
   rw [mem_insert]
   sorry
-theorem ex10 (s : Finset ℕ) (x : ℕ) : x ∈ s.filter Nat.Prime ↔ x ∈ s ∧ x.Prime :=
+theorem S03_Infinitely_Many_Primes_ex10 (s : Finset ℕ) (x : ℕ) : x ∈ s.filter Nat.Prime ↔ x ∈ s ∧ x.Prime :=
   mem_filter
 
 theorem primes_infinite' : ∀ s : Finset Nat, ∃ p, Nat.Prime p ∧ p ∉ s := by
@@ -152,9 +152,9 @@ theorem ex_finset_of_bounded (Q : ℕ → Prop) [DecidablePred Q] :
   simp [Nat.lt_succ_iff]
   exact hn k
 
-theorem ex11 : 27 % 4 = 3 := by norm_num
+theorem S03_Infinitely_Many_Primes_ex11 : 27 % 4 = 3 := by norm_num
 
-theorem ex12 (n : ℕ) : (4 * n + 3) % 4 = 3 := by
+theorem S03_Infinitely_Many_Primes_ex12 (n : ℕ) : (4 * n + 3) % 4 = 3 := by
   rw [add_comm, Nat.add_mul_mod_self_left]
   norm_num
 
@@ -194,10 +194,10 @@ theorem exists_prime_factor_mod_4_eq_3 {n : Nat} (h : n % 4 = 3) :
   rcases this with h1 | h1
   . sorry
   . sorry
-theorem ex13 (m n : ℕ) (s : Finset ℕ) (h : m ∈ erase s n) : m ≠ n ∧ m ∈ s := by
+theorem S03_Infinitely_Many_Primes_ex13 (m n : ℕ) (s : Finset ℕ) (h : m ∈ erase s n) : m ≠ n ∧ m ∈ s := by
   rwa [mem_erase] at h
 
-theorem ex14 (m n : ℕ) (s : Finset ℕ) (h : m ∈ erase s n) : m ≠ n ∧ m ∈ s := by
+theorem S03_Infinitely_Many_Primes_ex14 (m n : ℕ) (s : Finset ℕ) (h : m ∈ erase s n) : m ≠ n ∧ m ∈ s := by
   simp at h
   assumption
 

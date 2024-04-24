@@ -6,15 +6,15 @@ namespace C03S06
 def ConvergesTo (s : ℕ → ℝ) (a : ℝ) :=
   ∀ ε > 0, ∃ N, ∀ n ≥ N, |s n - a| < ε
 
-theorem ex1 : (fun x y : ℝ ↦ (x + y) ^ 2) = fun x y : ℝ ↦ x ^ 2 + 2 * x * y + y ^ 2 := by
+theorem S06_Sequences_and_Convergence_ex1 : (fun x y : ℝ ↦ (x + y) ^ 2) = fun x y : ℝ ↦ x ^ 2 + 2 * x * y + y ^ 2 := by
   ext
   ring
 
-theorem ex2 (a b : ℝ) : |a| = |a - b + b| := by
+theorem S06_Sequences_and_Convergence_ex2 (a b : ℝ) : |a| = |a - b + b| := by
   congr
   ring
 
-theorem ex3 {a : ℝ} (h : 1 < a) : a < a * a := by
+theorem S06_Sequences_and_Convergence_ex3 {a : ℝ} (h : 1 < a) : a < a * a := by
   convert (mul_lt_mul_right _).2 h
   · rw [one_mul]
   exact lt_trans zero_lt_one h

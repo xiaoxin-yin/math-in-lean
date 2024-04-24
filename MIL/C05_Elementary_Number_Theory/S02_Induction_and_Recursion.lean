@@ -2,32 +2,32 @@ import Mathlib.Data.Nat.GCD.Basic
 import Mathlib.Algebra.BigOperators.Basic
 import MIL.Common
 
-theorem ex1 (n : Nat) : n.succ ≠ Nat.zero :=
+theorem S02_Induction_and_Recursion_ex1 (n : Nat) : n.succ ≠ Nat.zero :=
   Nat.succ_ne_zero n
 
-theorem ex2 (m n : Nat) (h : m.succ = n.succ) : m = n :=
+theorem S02_Induction_and_Recursion_ex2 (m n : Nat) (h : m.succ = n.succ) : m = n :=
   Nat.succ.inj h
 
 def fac : ℕ → ℕ
   | 0 => 1
   | n + 1 => (n + 1) * fac n
 
-theorem ex3 : fac 0 = 1 :=
+theorem S02_Induction_and_Recursion_ex3 : fac 0 = 1 :=
   rfl
 
-theorem ex4 : fac 0 = 1 := by
+theorem S02_Induction_and_Recursion_ex4 : fac 0 = 1 := by
   rw [fac]
 
-theorem ex5 : fac 0 = 1 := by
+theorem S02_Induction_and_Recursion_ex5 : fac 0 = 1 := by
   simp [fac]
 
-theorem ex6 (n : ℕ) : fac (n + 1) = (n + 1) * fac n :=
+theorem S02_Induction_and_Recursion_ex6 (n : ℕ) : fac (n + 1) = (n + 1) * fac n :=
   rfl
 
-theorem ex7 (n : ℕ) : fac (n + 1) = (n + 1) * fac n := by
+theorem S02_Induction_and_Recursion_ex7 (n : ℕ) : fac (n + 1) = (n + 1) * fac n := by
   rw [fac]
 
-theorem ex8 (n : ℕ) : fac (n + 1) = (n + 1) * fac n := by
+theorem S02_Induction_and_Recursion_ex8 (n : ℕ) : fac (n + 1) = (n + 1) * fac n := by
   simp [fac]
 
 theorem fac_pos (n : ℕ) : 0 < fac n := by
@@ -60,36 +60,36 @@ variable {α : Type*} (s : Finset ℕ) (f : ℕ → ℕ) (n : ℕ)
 open BigOperators
 open Finset
 
-theorem ex9 : s.sum f = ∑ x in s, f x :=
+theorem S02_Induction_and_Recursion_ex9 : s.sum f = ∑ x in s, f x :=
   rfl
 
-theorem ex10 : s.prod f = ∏ x in s, f x :=
+theorem S02_Induction_and_Recursion_ex10 : s.prod f = ∏ x in s, f x :=
   rfl
 
-theorem ex11 : (range n).sum f = ∑ x in range n, f x :=
+theorem S02_Induction_and_Recursion_ex11 : (range n).sum f = ∑ x in range n, f x :=
   rfl
 
-theorem ex12 : (range n).prod f = ∏ x in range n, f x :=
+theorem S02_Induction_and_Recursion_ex12 : (range n).prod f = ∏ x in range n, f x :=
   rfl
 
-theorem ex13 (f : ℕ → ℕ) : ∑ x in range 0, f x = 0 :=
+theorem S02_Induction_and_Recursion_ex13 (f : ℕ → ℕ) : ∑ x in range 0, f x = 0 :=
   Finset.sum_range_zero f
 
-theorem ex14 (f : ℕ → ℕ) (n : ℕ) : ∑ x in range n.succ, f x = ∑ x in range n, f x + f n :=
+theorem S02_Induction_and_Recursion_ex14 (f : ℕ → ℕ) (n : ℕ) : ∑ x in range n.succ, f x = ∑ x in range n, f x + f n :=
   Finset.sum_range_succ f n
 
-theorem ex15 (f : ℕ → ℕ) : ∏ x in range 0, f x = 1 :=
+theorem S02_Induction_and_Recursion_ex15 (f : ℕ → ℕ) : ∏ x in range 0, f x = 1 :=
   Finset.prod_range_zero f
 
-theorem ex16 (f : ℕ → ℕ) (n : ℕ) : ∏ x in range n.succ, f x = (∏ x in range n, f x) * f n :=
+theorem S02_Induction_and_Recursion_ex16 (f : ℕ → ℕ) (n : ℕ) : ∏ x in range n.succ, f x = (∏ x in range n, f x) * f n :=
   Finset.prod_range_succ f n
 
-theorem ex17 (n : ℕ) : fac n = ∏ i in range n, (i + 1) := by
+theorem S02_Induction_and_Recursion_ex17 (n : ℕ) : fac n = ∏ i in range n, (i + 1) := by
   induction' n with n ih
   · rw [fac, prod_range_zero]
   rw [fac, ih, prod_range_succ, mul_comm]
 
-theorem ex18 (a b c d e f : ℕ) : a * (b * c * f * (d * e)) = d * (a * f * e) * (c * b) := by
+theorem S02_Induction_and_Recursion_ex18 (a b c d e f : ℕ) : a * (b * c * f * (d * e)) = d * (a * f * e) * (c * b) := by
   simp [mul_assoc, mul_comm, mul_left_comm]
 
 theorem sum_id (n : ℕ) : ∑ i in range (n + 1), i = n * (n + 1) / 2 := by

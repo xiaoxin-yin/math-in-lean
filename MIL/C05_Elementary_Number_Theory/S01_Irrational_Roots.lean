@@ -4,34 +4,34 @@ import Mathlib.Data.Nat.Prime
 
 #print Nat.Coprime
 
-theorem ex1 (m n : Nat) (h : m.Coprime n) : m.gcd n = 1 :=
+theorem S01_Irrational_Roots_ex1 (m n : Nat) (h : m.Coprime n) : m.gcd n = 1 :=
   h
 
-theorem ex2 (m n : Nat) (h : m.Coprime n) : m.gcd n = 1 := by
+theorem S01_Irrational_Roots_ex2 (m n : Nat) (h : m.Coprime n) : m.gcd n = 1 := by
   rw [Nat.Coprime] at h
   exact h
 
-theorem ex3 : Nat.Coprime 12 7 := by norm_num
+theorem S01_Irrational_Roots_ex3 : Nat.Coprime 12 7 := by norm_num
 
-theorem ex4 : Nat.gcd 12 8 = 4 := by norm_num
+theorem S01_Irrational_Roots_ex4 : Nat.gcd 12 8 = 4 := by norm_num
 
 #check Nat.prime_def_lt
 
-theorem ex5 (p : ℕ) (prime_p : Nat.Prime p) : 2 ≤ p ∧ ∀ m : ℕ, m < p → m ∣ p → m = 1 := by
+theorem S01_Irrational_Roots_ex5 (p : ℕ) (prime_p : Nat.Prime p) : 2 ≤ p ∧ ∀ m : ℕ, m < p → m ∣ p → m = 1 := by
   rwa [Nat.prime_def_lt] at prime_p
 
 #check Nat.Prime.eq_one_or_self_of_dvd
 
-theorem ex6 (p : ℕ) (prime_p : Nat.Prime p) : ∀ m : ℕ, m ∣ p → m = 1 ∨ m = p :=
+theorem S01_Irrational_Roots_ex6 (p : ℕ) (prime_p : Nat.Prime p) : ∀ m : ℕ, m ∣ p → m = 1 ∨ m = p :=
   prime_p.eq_one_or_self_of_dvd
 
-theorem ex7 : Nat.Prime 17 := by norm_num
+theorem S01_Irrational_Roots_ex7 : Nat.Prime 17 := by norm_num
 
 -- commonly used
-theorem ex8 : Nat.Prime 2 :=
+theorem S01_Irrational_Roots_ex8 : Nat.Prime 2 :=
   Nat.prime_two
 
-theorem ex9 : Nat.Prime 3 :=
+theorem S01_Irrational_Roots_ex9 : Nat.Prime 3 :=
   Nat.prime_three
 
 #check Nat.Prime.dvd_mul
@@ -42,14 +42,14 @@ theorem even_of_even_sqr {m : ℕ} (h : 2 ∣ m ^ 2) : 2 ∣ m := by
   rw [pow_two, Nat.prime_two.dvd_mul] at h
   cases h <;> assumption
 
-theorem ex10 {m : ℕ} (h : 2 ∣ m ^ 2) : 2 ∣ m :=
+theorem S01_Irrational_Roots_ex10 {m : ℕ} (h : 2 ∣ m ^ 2) : 2 ∣ m :=
   Nat.Prime.dvd_of_dvd_pow Nat.prime_two h
 
-theorem ex11 (a b c : Nat) (h : a * b = a * c) (h' : a ≠ 0) : b = c :=
+theorem S01_Irrational_Roots_ex11 (a b c : Nat) (h : a * b = a * c) (h' : a ≠ 0) : b = c :=
   -- apply? suggests the following:
   (mul_right_inj' h').mp h
 
-theorem ex12 {m n : ℕ} (coprime_mn : m.Coprime n) : m ^ 2 ≠ 2 * n ^ 2 := by
+theorem S01_Irrational_Roots_ex12 {m n : ℕ} (coprime_mn : m.Coprime n) : m ^ 2 ≠ 2 * n ^ 2 := by
   intro sqr_eq
   have : 2 ∣ m := by
     sorry
@@ -67,7 +67,7 @@ theorem ex12 {m n : ℕ} (coprime_mn : m.Coprime n) : m ^ 2 ≠ 2 * n ^ 2 := by
     sorry
   norm_num at this
 
-theorem ex13 {m n p : ℕ} (coprime_mn : m.Coprime n) (prime_p : p.Prime) : m ^ 2 ≠ p * n ^ 2 := by
+theorem S01_Irrational_Roots_ex13 {m n p : ℕ} (coprime_mn : m.Coprime n) (prime_p : p.Prime) : m ^ 2 ≠ p * n ^ 2 := by
   sorry
 #check Nat.factors
 #check Nat.prime_of_mem_factors
@@ -89,7 +89,7 @@ theorem Nat.Prime.factorization' {p : ℕ} (prime_p : p.Prime) :
   rw [prime_p.factorization]
   simp
 
-theorem ex14 {m n p : ℕ} (nnz : n ≠ 0) (prime_p : p.Prime) : m ^ 2 ≠ p * n ^ 2 := by
+theorem S01_Irrational_Roots_ex14 {m n p : ℕ} (nnz : n ≠ 0) (prime_p : p.Prime) : m ^ 2 ≠ p * n ^ 2 := by
   intro sqr_eq
   have nsqr_nez : n ^ 2 ≠ 0 := by simpa
   have eq1 : Nat.factorization (m ^ 2) p = 2 * m.factorization p := by
@@ -101,7 +101,7 @@ theorem ex14 {m n p : ℕ} (nnz : n ≠ 0) (prime_p : p.Prime) : m ^ 2 ≠ p * n
   rw [add_comm, Nat.add_mul_mod_self_left, Nat.mul_mod_right] at this
   norm_num at this
 
-theorem ex15 {m n k r : ℕ} (nnz : n ≠ 0) (pow_eq : m ^ k = r * n ^ k) {p : ℕ} (prime_p : p.Prime) :
+theorem S01_Irrational_Roots_ex15 {m n k r : ℕ} (nnz : n ≠ 0) (pow_eq : m ^ k = r * n ^ k) {p : ℕ} (prime_p : p.Prime) :
     k ∣ r.factorization p := by
   rcases r with _ | r
   · simp

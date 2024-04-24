@@ -4,7 +4,7 @@ import Mathlib.Data.Nat.Prime
 
 namespace C03S04
 
-theorem ex1 {m n : ℕ} (h : m ∣ n ∧ m ≠ n) : m ∣ n ∧ ¬n ∣ m := by
+theorem Solutions_S04_Conjunction_and_Iff_ex1 {m n : ℕ} (h : m ∣ n ∧ m ≠ n) : m ∣ n ∧ ¬n ∣ m := by
   rcases h with ⟨h0, h1⟩
   constructor
   · exact h0
@@ -12,7 +12,7 @@ theorem ex1 {m n : ℕ} (h : m ∣ n ∧ m ≠ n) : m ∣ n ∧ ¬n ∣ m := by
   apply h1
   apply Nat.dvd_antisymm h0 h2
 
-theorem ex2 {x y : ℝ} : x ≤ y ∧ ¬y ≤ x ↔ x ≤ y ∧ x ≠ y := by
+theorem Solutions_S04_Conjunction_and_Iff_ex2 {x y : ℝ} : x ≤ y ∧ ¬y ≤ x ↔ x ≤ y ∧ x ≠ y := by
   constructor
   · rintro ⟨h0, h1⟩
     constructor
@@ -31,7 +31,7 @@ theorem aux {x y : ℝ} (h : x ^ 2 + y ^ 2 = 0) : x = 0 :=
   have h' : x ^ 2 = 0 := by linarith [pow_two_nonneg x, pow_two_nonneg y]
   pow_eq_zero h'
 
-theorem ex3 (x y : ℝ) : x ^ 2 + y ^ 2 = 0 ↔ x = 0 ∧ y = 0 := by
+theorem Solutions_S04_Conjunction_and_Iff_ex3 (x y : ℝ) : x ^ 2 + y ^ 2 = 0 ↔ x = 0 ∧ y = 0 := by
   constructor
   · intro h
     constructor
@@ -46,7 +46,7 @@ theorem not_monotone_iff {f : ℝ → ℝ} : ¬Monotone f ↔ ∃ x y, x ≤ y �
   push_neg
   rfl
 
-theorem ex4 : ¬Monotone fun x : ℝ ↦ -x := by
+theorem Solutions_S04_Conjunction_and_Iff_ex4 : ¬Monotone fun x : ℝ ↦ -x := by
   rw [not_monotone_iff]
   use 0, 1
   norm_num
@@ -55,7 +55,7 @@ section
 variable {α : Type*} [PartialOrder α]
 variable (a b : α)
 
-theorem ex5 : a < b ↔ a ≤ b ∧ a ≠ b := by
+theorem Solutions_S04_Conjunction_and_Iff_ex5 : a < b ↔ a ≤ b ∧ a ≠ b := by
   rw [lt_iff_le_not_le]
   constructor
   · rintro ⟨h0, h1⟩
@@ -77,12 +77,12 @@ section
 variable {α : Type*} [Preorder α]
 variable (a b c : α)
 
-theorem ex6 : ¬a < a := by
+theorem Solutions_S04_Conjunction_and_Iff_ex6 : ¬a < a := by
   rw [lt_iff_le_not_le]
   rintro ⟨h0, h1⟩
   exact h1 h0
 
-theorem ex7 : a < b → b < c → a < c := by
+theorem Solutions_S04_Conjunction_and_Iff_ex7 : a < b → b < c → a < c := by
   simp only [lt_iff_le_not_le]
   rintro ⟨h0, h1⟩ ⟨h2, h3⟩
   constructor

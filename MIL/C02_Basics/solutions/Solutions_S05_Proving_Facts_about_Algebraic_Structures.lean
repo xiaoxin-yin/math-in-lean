@@ -5,14 +5,14 @@ section
 variable {α : Type*} [Lattice α]
 variable (x y z : α)
 
-theorem ex1 : x ⊓ y = y ⊓ x := by
+theorem Solutions_S05_Proving_Facts_about_Algebraic_Structures_ex1 : x ⊓ y = y ⊓ x := by
   apply le_antisymm
   repeat'
     apply le_inf
     · apply inf_le_right
     apply inf_le_left
 
-theorem ex2 : x ⊓ y ⊓ z = x ⊓ (y ⊓ z) := by
+theorem Solutions_S05_Proving_Facts_about_Algebraic_Structures_ex2 : x ⊓ y ⊓ z = x ⊓ (y ⊓ z) := by
   apply le_antisymm
   · apply le_inf
     · apply le_trans
@@ -33,14 +33,14 @@ theorem ex2 : x ⊓ y ⊓ z = x ⊓ (y ⊓ z) := by
   apply inf_le_right
   apply inf_le_right
 
-theorem ex3 : x ⊔ y = y ⊔ x := by
+theorem Solutions_S05_Proving_Facts_about_Algebraic_Structures_ex3 : x ⊔ y = y ⊔ x := by
   apply le_antisymm
   repeat'
     apply sup_le
     · apply le_sup_right
     apply le_sup_left
 
-theorem ex4 : x ⊔ y ⊔ z = x ⊔ (y ⊔ z) := by
+theorem Solutions_S05_Proving_Facts_about_Algebraic_Structures_ex4 : x ⊔ y ⊔ z = x ⊔ (y ⊔ z) := by
   apply le_antisymm
   · apply sup_le
     · apply sup_le
@@ -91,11 +91,11 @@ section
 variable {α : Type*} [Lattice α]
 variable (a b c : α)
 
-theorem ex5 (h : ∀ x y z : α, x ⊓ (y ⊔ z) = x ⊓ y ⊔ x ⊓ z) : a ⊔ b ⊓ c = (a ⊔ b) ⊓ (a ⊔ c) := by
+theorem Solutions_S05_Proving_Facts_about_Algebraic_Structures_ex5 (h : ∀ x y z : α, x ⊓ (y ⊔ z) = x ⊓ y ⊔ x ⊓ z) : a ⊔ b ⊓ c = (a ⊔ b) ⊓ (a ⊔ c) := by
   rw [h, @inf_comm _ _ (a ⊔ b), absorb1, @inf_comm _ _ (a ⊔ b), h, ← sup_assoc, @inf_comm _ _ c a,
     absorb2, inf_comm]
 
-theorem ex6 (h : ∀ x y z : α, x ⊔ y ⊓ z = (x ⊔ y) ⊓ (x ⊔ z)) : a ⊓ (b ⊔ c) = a ⊓ b ⊔ a ⊓ c := by
+theorem Solutions_S05_Proving_Facts_about_Algebraic_Structures_ex6 (h : ∀ x y z : α, x ⊔ y ⊓ z = (x ⊔ y) ⊓ (x ⊔ z)) : a ⊓ (b ⊔ c) = a ⊓ b ⊔ a ⊓ c := by
   rw [h, @sup_comm _ _ (a ⊓ b), absorb2, @sup_comm _ _ (a ⊓ b), h, ← inf_assoc, @sup_comm _ _ c a,
     absorb1, sup_comm]
 
@@ -113,7 +113,7 @@ theorem aux2 (h : 0 ≤ b - a) : a ≤ b := by
   rw [← add_zero a, ← sub_add_cancel b a, add_comm (b - a)]
   apply add_le_add_left h
 
-theorem ex7 (h : a ≤ b) (h' : 0 ≤ c) : a * c ≤ b * c := by
+theorem Solutions_S05_Proving_Facts_about_Algebraic_Structures_ex7 (h : a ≤ b) (h' : 0 ≤ c) : a * c ≤ b * c := by
   have h1 : 0 ≤ (b - a) * c := mul_nonneg (aux1 _ _ h) h'
   rw [sub_mul] at h1
   exact aux2 _ _ h1
@@ -124,7 +124,7 @@ section
 variable {X : Type*} [MetricSpace X]
 variable (x y z : X)
 
-theorem ex8 (x y : X) : 0 ≤ dist x y :=by
+theorem Solutions_S05_Proving_Facts_about_Algebraic_Structures_ex8 (x y : X) : 0 ≤ dist x y :=by
   have : 0 ≤ dist x y + dist y x := by
     rw [← dist_self x]
     apply dist_triangle

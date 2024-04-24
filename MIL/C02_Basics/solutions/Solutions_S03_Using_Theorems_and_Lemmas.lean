@@ -4,35 +4,35 @@ import MIL.Common
 variable (a b c d e : ℝ)
 open Real
 
-theorem ex1 (h₀ : a ≤ b) (h₁ : b < c) (h₂ : c ≤ d) (h₃ : d < e) : a < e := by
+theorem Solutions_S03_Using_Theorems_and_Lemmas_ex1 (h₀ : a ≤ b) (h₁ : b < c) (h₂ : c ≤ d) (h₃ : d < e) : a < e := by
   apply lt_of_le_of_lt h₀
   apply lt_trans h₁
   exact lt_of_le_of_lt h₂ h₃
 
-theorem ex2 (h₀ : d ≤ e) : c + exp (a + d) ≤ c + exp (a + e) := by
+theorem Solutions_S03_Using_Theorems_and_Lemmas_ex2 (h₀ : d ≤ e) : c + exp (a + d) ≤ c + exp (a + e) := by
   apply add_le_add_left
   rw [exp_le_exp]
   apply add_le_add_left h₀
 
 -- an alternative using `linarith`.
-theorem ex3 (h₀ : d ≤ e) : c + exp (a + d) ≤ c + exp (a + e) := by
+theorem Solutions_S03_Using_Theorems_and_Lemmas_ex3 (h₀ : d ≤ e) : c + exp (a + d) ≤ c + exp (a + e) := by
   have : exp (a + d) ≤ exp (a + e) := by
     rw [exp_le_exp]
     linarith
   linarith [this]
 
-theorem ex4 (h : a ≤ b) : log (1 + exp a) ≤ log (1 + exp b) := by
+theorem Solutions_S03_Using_Theorems_and_Lemmas_ex4 (h : a ≤ b) : log (1 + exp a) ≤ log (1 + exp b) := by
   have h₀ : 0 < 1 + exp a := by linarith [exp_pos a]
   apply log_le_log h₀
   apply add_le_add_left (exp_le_exp.mpr h)
 
 -- SOLUTION.
-theorem ex5 (h : a ≤ b) : c - exp b ≤ c - exp a := by
+theorem Solutions_S03_Using_Theorems_and_Lemmas_ex5 (h : a ≤ b) : c - exp b ≤ c - exp a := by
   apply sub_le_sub_left
   exact exp_le_exp.mpr h
 
 -- alternatively:
-theorem ex6 (h : a ≤ b) : c - exp b ≤ c - exp a := by
+theorem Solutions_S03_Using_Theorems_and_Lemmas_ex6 (h : a ≤ b) : c - exp b ≤ c - exp a := by
   linarith [exp_le_exp.mpr h]
 
 theorem fact1 : a * b * 2 ≤ a ^ 2 + b ^ 2 := by
@@ -49,7 +49,7 @@ theorem fact2 : -(a * b) * 2 ≤ a ^ 2 + b ^ 2 := by
     _ ≥ 0 := by apply pow_two_nonneg
   linarith
 
-theorem ex7 : |a * b| ≤ (a ^ 2 + b ^ 2) / 2 := by
+theorem Solutions_S03_Using_Theorems_and_Lemmas_ex7 : |a * b| ≤ (a ^ 2 + b ^ 2) / 2 := by
   have h : (0 : ℝ) < 2 := by norm_num
   apply abs_le'.mpr
   constructor

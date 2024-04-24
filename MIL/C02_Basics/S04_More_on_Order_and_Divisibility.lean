@@ -10,7 +10,7 @@ variable (a b c d : ℝ)
 #check (min_le_right a b : min a b ≤ b)
 #check (le_min : c ≤ a → c ≤ b → c ≤ min a b)
 
-theorem ex1 : min a b = min b a := by
+theorem S04_More_on_Order_and_Divisibility_ex1 : min a b = min b a := by
   apply le_antisymm
   · show min a b ≤ min b a
     apply le_min
@@ -21,7 +21,7 @@ theorem ex1 : min a b = min b a := by
     · apply min_le_right
     apply min_le_left
 
-theorem ex2 : min a b = min b a := by
+theorem S04_More_on_Order_and_Divisibility_ex2 : min a b = min b a := by
   have h : ∀ x y : ℝ, min x y ≤ min y x := by
     intro x y
     apply le_min
@@ -31,41 +31,41 @@ theorem ex2 : min a b = min b a := by
   apply h
   apply h
 
-theorem ex3 : min a b = min b a := by
+theorem S04_More_on_Order_and_Divisibility_ex3 : min a b = min b a := by
   apply le_antisymm
   repeat
     apply le_min
     apply min_le_right
     apply min_le_left
 
-theorem ex4 : max a b = max b a := by
+theorem S04_More_on_Order_and_Divisibility_ex4 : max a b = max b a := by
   sorry
-theorem ex5 : min (min a b) c = min a (min b c) := by
+theorem S04_More_on_Order_and_Divisibility_ex5 : min (min a b) c = min a (min b c) := by
   sorry
 theorem aux : min a b + c ≤ min (a + c) (b + c) := by
   sorry
-theorem ex6 : min a b + c = min (a + c) (b + c) := by
+theorem S04_More_on_Order_and_Divisibility_ex6 : min a b + c = min (a + c) (b + c) := by
   sorry
 #check (abs_add : ∀ a b : ℝ, |a + b| ≤ |a| + |b|)
 
-theorem ex7 : |a| - |b| ≤ |a - b| :=
+theorem S04_More_on_Order_and_Divisibility_ex7 : |a| - |b| ≤ |a - b| :=
   sorry
 end
 
 section
 variable (w x y z : ℕ)
 
-theorem ex8 (h₀ : x ∣ y) (h₁ : y ∣ z) : x ∣ z :=
+theorem S04_More_on_Order_and_Divisibility_ex8 (h₀ : x ∣ y) (h₁ : y ∣ z) : x ∣ z :=
   dvd_trans h₀ h₁
 
-theorem ex9 : x ∣ y * x * z := by
+theorem S04_More_on_Order_and_Divisibility_ex9 : x ∣ y * x * z := by
   apply dvd_mul_of_dvd_left
   apply dvd_mul_left
 
-theorem ex10 : x ∣ x ^ 2 := by
+theorem S04_More_on_Order_and_Divisibility_ex10 : x ∣ x ^ 2 := by
   apply dvd_mul_left
 
-theorem ex11 (h : x ∣ w) : x ∣ y * (x * z) + x ^ 2 + w ^ 2 := by
+theorem S04_More_on_Order_and_Divisibility_ex11 (h : x ∣ w) : x ∣ y * (x * z) + x ^ 2 + w ^ 2 := by
   sorry
 end
 
@@ -77,7 +77,7 @@ variable (m n : ℕ)
 #check (Nat.lcm_zero_right n : Nat.lcm n 0 = 0)
 #check (Nat.lcm_zero_left n : Nat.lcm 0 n = 0)
 
-theorem ex12 : Nat.gcd m n = Nat.gcd n m := by
+theorem S04_More_on_Order_and_Divisibility_ex12 : Nat.gcd m n = Nat.gcd n m := by
   sorry
 end
 

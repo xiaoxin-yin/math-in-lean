@@ -281,7 +281,7 @@ instance : EuclideanDomain gaussInt :=
     remainder_lt := natAbs_norm_mod_lt
     mul_left_not_lt := not_norm_mul_left_lt_norm }
 
-theorem ex1 (x : gaussInt) : Irreducible x ↔ Prime x :=
+theorem Solutions_S03_Building_the_Gaussian_Integers_ex1 (x : gaussInt) : Irreducible x ↔ Prime x :=
   PrincipalIdealRing.irreducible_iff_prime
 
 end gaussInt

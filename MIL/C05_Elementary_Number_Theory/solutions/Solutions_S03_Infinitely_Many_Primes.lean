@@ -57,22 +57,22 @@ open Finset
 section
 variable {α : Type*} [DecidableEq α] (r s t : Finset α)
 
-theorem ex1 : (r ∪ s) ∩ (r ∪ t) = r ∪ s ∩ t := by
+theorem Solutions_S03_Infinitely_Many_Primes_ex1 : (r ∪ s) ∩ (r ∪ t) = r ∪ s ∩ t := by
   ext x
   rw [mem_inter, mem_union, mem_union, mem_union, mem_inter]
   tauto
 
-theorem ex2 : (r ∪ s) ∩ (r ∪ t) = r ∪ s ∩ t := by
+theorem Solutions_S03_Infinitely_Many_Primes_ex2 : (r ∪ s) ∩ (r ∪ t) = r ∪ s ∩ t := by
   ext x
   simp
   tauto
 
-theorem ex3 : (r \ s) \ t = r \ (s ∪ t) := by
+theorem Solutions_S03_Infinitely_Many_Primes_ex3 : (r \ s) \ t = r \ (s ∪ t) := by
   ext x
   rw [mem_sdiff, mem_sdiff, mem_sdiff, mem_union]
   tauto
 
-theorem ex4 : (r \ s) \ t = r \ (s ∪ t) := by
+theorem Solutions_S03_Infinitely_Many_Primes_ex4 : (r \ s) \ t = r \ (s ∪ t) := by
   ext x
   simp
   tauto

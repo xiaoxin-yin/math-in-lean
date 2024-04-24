@@ -56,20 +56,20 @@ def FnLb (f : ℝ → ℝ) (a : ℝ) : Prop :=
 section
 variable (f g : ℝ → ℝ) (a b : ℝ)
 
-theorem ex1 (hfa : FnUb f a) (hgb : FnUb g b) : FnUb (fun x ↦ f x + g x) (a + b) := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex1 (hfa : FnUb f a) (hgb : FnUb g b) : FnUb (fun x ↦ f x + g x) (a + b) := by
   intro x
   dsimp
   apply add_le_add
   apply hfa
   apply hgb
 
-theorem ex2 (hfa : FnLb f a) (hgb : FnLb g b) : FnLb (fun x ↦ f x + g x) (a + b) :=
+theorem S01_Implication_and_the_Universal_Quantifier_ex2 (hfa : FnLb f a) (hgb : FnLb g b) : FnLb (fun x ↦ f x + g x) (a + b) :=
   sorry
 
-theorem ex3 (nnf : FnLb f 0) (nng : FnLb g 0) : FnLb (fun x ↦ f x * g x) 0 :=
+theorem S01_Implication_and_the_Universal_Quantifier_ex3 (nnf : FnLb f 0) (nng : FnLb g 0) : FnLb (fun x ↦ f x * g x) 0 :=
   sorry
 
-theorem ex4 (hfa : FnUb f a) (hgb : FnUb g b) (nng : FnLb g 0) (nna : 0 ≤ a) :
+theorem S01_Implication_and_the_Universal_Quantifier_ex4 (hfa : FnUb f a) (hgb : FnUb g b) (nng : FnLb g 0) (nna : 0 ≤ a) :
     FnUb (fun x ↦ f x * g x) (a * b) :=
   sorry
 
@@ -88,25 +88,25 @@ theorem fnUb_add {f g : α → R} {a b : R} (hfa : FnUb' f a) (hgb : FnUb' g b) 
 
 end
 
-theorem ex5 (f : ℝ → ℝ) (h : Monotone f) : ∀ {a b}, a ≤ b → f a ≤ f b :=
+theorem S01_Implication_and_the_Universal_Quantifier_ex5 (f : ℝ → ℝ) (h : Monotone f) : ∀ {a b}, a ≤ b → f a ≤ f b :=
   @h
 
 section
 variable (f g : ℝ → ℝ)
 
-theorem ex6 (mf : Monotone f) (mg : Monotone g) : Monotone fun x ↦ f x + g x := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex6 (mf : Monotone f) (mg : Monotone g) : Monotone fun x ↦ f x + g x := by
   intro a b aleb
   apply add_le_add
   apply mf aleb
   apply mg aleb
 
-theorem ex7 (mf : Monotone f) (mg : Monotone g) : Monotone fun x ↦ f x + g x :=
+theorem S01_Implication_and_the_Universal_Quantifier_ex7 (mf : Monotone f) (mg : Monotone g) : Monotone fun x ↦ f x + g x :=
   fun a b aleb ↦ add_le_add (mf aleb) (mg aleb)
 
-theorem ex8 {c : ℝ} (mf : Monotone f) (nnc : 0 ≤ c) : Monotone fun x ↦ c * f x :=
+theorem S01_Implication_and_the_Universal_Quantifier_ex8 {c : ℝ} (mf : Monotone f) (nnc : 0 ≤ c) : Monotone fun x ↦ c * f x :=
   sorry
 
-theorem ex9 (mf : Monotone f) (mg : Monotone g) : Monotone fun x ↦ f (g x) :=
+theorem S01_Implication_and_the_Universal_Quantifier_ex9 (mf : Monotone f) (mg : Monotone g) : Monotone fun x ↦ f (g x) :=
   sorry
 
 def FnEven (f : ℝ → ℝ) : Prop :=
@@ -115,20 +115,20 @@ def FnEven (f : ℝ → ℝ) : Prop :=
 def FnOdd (f : ℝ → ℝ) : Prop :=
   ∀ x, f x = -f (-x)
 
-theorem ex10 (ef : FnEven f) (eg : FnEven g) : FnEven fun x ↦ f x + g x := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex10 (ef : FnEven f) (eg : FnEven g) : FnEven fun x ↦ f x + g x := by
   intro x
   calc
     (fun x ↦ f x + g x) x = f x + g x := rfl
     _ = f (-x) + g (-x) := by rw [ef, eg]
 
 
-theorem ex11 (of : FnOdd f) (og : FnOdd g) : FnEven fun x ↦ f x * g x := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex11 (of : FnOdd f) (og : FnOdd g) : FnEven fun x ↦ f x * g x := by
   sorry
 
-theorem ex12 (ef : FnEven f) (og : FnOdd g) : FnOdd fun x ↦ f x * g x := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex12 (ef : FnEven f) (og : FnOdd g) : FnOdd fun x ↦ f x * g x := by
   sorry
 
-theorem ex13 (ef : FnEven f) (og : FnOdd g) : FnEven fun x ↦ f (g x) := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex13 (ef : FnEven f) (og : FnOdd g) : FnEven fun x ↦ f (g x) := by
   sorry
 
 end
@@ -137,7 +137,7 @@ section
 
 variable {α : Type*} (r s t : Set α)
 
-theorem ex14 : s ⊆ s := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex14 : s ⊆ s := by
   intro x xs
   exact xs
 
@@ -155,7 +155,7 @@ variable (s : Set α) (a b : α)
 def SetUb (s : Set α) (a : α) :=
   ∀ x, x ∈ s → x ≤ a
 
-theorem ex15 (h : SetUb s a) (h' : a ≤ b) : SetUb s b :=
+theorem S01_Implication_and_the_Universal_Quantifier_ex15 (h : SetUb s a) (h' : a ≤ b) : SetUb s b :=
   sorry
 
 end
@@ -164,17 +164,17 @@ section
 
 open Function
 
-theorem ex16 (c : ℝ) : Injective fun x ↦ x + c := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex16 (c : ℝ) : Injective fun x ↦ x + c := by
   intro x₁ x₂ h'
   exact (add_left_inj c).mp h'
 
-theorem ex17 {c : ℝ} (h : c ≠ 0) : Injective fun x ↦ c * x := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex17 {c : ℝ} (h : c ≠ 0) : Injective fun x ↦ c * x := by
   sorry
 
 variable {α : Type*} {β : Type*} {γ : Type*}
 variable {g : β → γ} {f : α → β}
 
-theorem ex18 (injg : Injective g) (injf : Injective f) : Injective fun x ↦ g (f x) := by
+theorem S01_Implication_and_the_Universal_Quantifier_ex18 (injg : Injective g) (injf : Injective f) : Injective fun x ↦ g (f x) := by
   sorry
 
 end

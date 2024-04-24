@@ -21,13 +21,13 @@ section
 variable (R : Type*) [CommRing R]
 variable (a b c d : R)
 
-theorem ex1 : c * b * a = b * (a * c) := by ring
+theorem S02_Proving_Identities_in_Algebraic_Structures_ex1 : c * b * a = b * (a * c) := by ring
 
-theorem ex2 : (a + b) * (a + b) = a * a + 2 * (a * b) + b * b := by ring
+theorem S02_Proving_Identities_in_Algebraic_Structures_ex2 : (a + b) * (a + b) = a * a + 2 * (a * b) + b * b := by ring
 
-theorem ex3 : (a + b) * (a - b) = a ^ 2 - b ^ 2 := by ring
+theorem S02_Proving_Identities_in_Algebraic_Structures_ex3 : (a + b) * (a - b) = a ^ 2 - b ^ 2 := by ring
 
-theorem ex4 (hyp : c = d * a + b) (hyp' : b = a * d) : c = 2 * a * d := by
+theorem S02_Proving_Identities_in_Algebraic_Structures_ex4 (hyp : c = d * a + b) (hyp' : b = a * d) : c = 2 * a * d := by
   rw [hyp, hyp']
   ring
 
@@ -88,15 +88,15 @@ end MyRing
 section
 variable {R : Type*} [Ring R]
 
-theorem ex5 (a b : R) : a - b = a + -b :=
+theorem S02_Proving_Identities_in_Algebraic_Structures_ex5 (a b : R) : a - b = a + -b :=
   sub_eq_add_neg a b
 
 end
 
-theorem ex6 (a b : ℝ) : a - b = a + -b :=
+theorem S02_Proving_Identities_in_Algebraic_Structures_ex6 (a b : ℝ) : a - b = a + -b :=
   rfl
 
-theorem ex7 (a b : ℝ) : a - b = a + -b := by
+theorem S02_Proving_Identities_in_Algebraic_Structures_ex7 (a b : ℝ) : a - b = a + -b := by
   rfl
 
 namespace MyRing

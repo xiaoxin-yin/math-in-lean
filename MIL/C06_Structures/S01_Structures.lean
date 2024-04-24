@@ -13,7 +13,7 @@ structure Point where
 
 #check Point.ext
 
-theorem ex1 (a b : Point) (hx : a.x = b.x) (hy : a.y = b.y) (hz : a.z = b.z) : a = b := by
+theorem S01_Structures_ex1 (a b : Point) (hx : a.x = b.x) (hy : a.y = b.y) (hz : a.z = b.z) : a = b := by
   ext
   repeat' assumption
 
@@ -60,7 +60,7 @@ protected theorem add_comm (a b : Point) : add a b = add b a := by
   ext <;> dsimp
   repeat' apply add_comm
 
-theorem ex2 (a b : Point) : add a b = add b a := by simp [add, add_comm]
+theorem S01_Structures_ex2 (a b : Point) : add a b = add b a := by simp [add, add_comm]
 
 theorem add_x (a b : Point) : (a.add b).x = a.x + b.x :=
   rfl
