@@ -5,7 +5,7 @@ import MIL.C02_Basics.S02_Proving_Identities_in_Algebraic_Structures
 import MIL.C02_Basics.S03_Using_Theorems_and_Lemmas
 import MIL.C02_Basics.S04_More_on_Order_and_Divisibility
 import MIL.C02_Basics.S05_Proving_Facts_about_Algebraic_Structures
-import MIL.C02_Basics.solutions.Solutions_S01_Calculating.lean
+import MIL.C02_Basics.solutions.Solutions_S01_Calculating
 import MIL.C03_Logic.S01_Implication_and_the_Universal_Quantifier
 import MIL.C03_Logic.S02_The_Existential_Quantifier
 import MIL.C03_Logic.S03_Negation
